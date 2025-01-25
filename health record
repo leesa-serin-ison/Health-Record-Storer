@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Buttons</title>
+    <style>
+        body {
+            background-color: rgb(135, 191, 246);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        button {
+            width: 150px;
+            height: 50px;
+            border-radius: 12px;
+            padding: 15px 25px;
+            background-color: rgb(207, 210, 210);
+            box-shadow: 0 9px #999;
+            display: inline-block;
+            border: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <button><a href="/Users/abhi/Desktop/enter l.html"><h2>Enter</h2></a></button>
+    <button><a href="/Users/abhi/Desktop/login.html"><h2>View my records</h2></a></button>
+</div>
+</body>
+</html>
