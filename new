@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Records</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        td {
+            background-color: #f9f9f9;
+        }
+        button {
+            padding: 8px 15px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff4d4d;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #cc0000;
+        }
+        .clear-button {
+            background-color: #007bff;
+        }
+        .clear-button:hover {
+            background-color: #0056b3;
+        }
+        .warning {
+            background-color: #ffcc00;
+            color: black;
+            font-weight: bold;
+        }
+        .normal {
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+    <script>
+        function loadRecords() {
+            let records = JSON.parse(localStorage.getItem("medicalRecords")) || [];
+            let tableBody = document.getElementById("recordsTableBody");
+            let comparisonBody = document.getElementById("comparisonTableBody");
+            tableBody.innerHTML = ""; // Clear existing table data
+            comparisonBody.innerHTML = ""; // Clear existing comparison data
+
+            const normalSugar = 100; // Normal sugar level in mg/dL
+            const normalPressure = 120; // Normal pressure in mmHg
+            const normalCholesterol = 200; // Normal cholesterol level in mg/dL
+
+            if (records.length === 0) {
+                tableBody.innerHTML = "<tr><td colspan='9'>No records found.</td></tr>";
+                return;
+            }
+
+            records.forEach((record, index) => {
+                // Record Table Row
+                let row = `<tr>
+                    <td>${index + 1}</td>
+                    <td>${record.patientName}</td>
+                    <td>${record.age}</td>
+                    <td>${record.gender}</td>
+                    <td>${record.sugar} mg/dL</td>
+                    <td>${record.pressure} mmHg</td>
+                    <td>${record.cholesterol} mg/dL</td>
+                    <td>${record.date}</td>
+                    <td><button onclick="deleteRecord(${index})">Delete</button></td>
+                </tr>`;
+                tableBody.innerHTML += row;
+
+                // Compare entered values with normal values and determine warning status
+                let sugarWarning = (record.sugar > normalSugar) ? 'High Sugar' : (record.sugar < normalSugar) ? 'Low Sugar' : 'Normal';
+                let pressureWarning = (record.pressure > normalPressure) ? 'High Pressure' : (record.pressure < normalPressure) ? 'Low Pressure' : 'Normal';
+                let cholesterolWarning = (record.cholesterol > normalCholesterol) ? 'High Cholesterol' : (record.cholesterol < normalCholesterol) ? 'Low Cholesterol' : 'Normal';
+
+                let warningClass = (sugarWarning === 'Normal' && pressureWarning === 'Normal' && cholesterolWarning === 'Normal') ? 'normal' : 'warning';
+
+                // Comparison Table Row
+                let comparisonRow = `<tr class="${warningClass}">
+                    <td>Normal Levels</td>
+                    <td>${normalSugar} mg/dL</td>
+                    <td>${normalPressure} mmHg</td>
+                    <td>${normalCholesterol} mg/dL</td>
+                    <td>Entered Levels</td>
+                    <td>${record.sugar} mg/dL</td>
+                    <td>${record.pressure} mmHg</td>
+                    <td>${record.cholesterol} mg/dL</td>
+                    <td>${sugarWarning}, ${pressureWarning}, ${cholesterolWarning}</td>
+                </tr>`;
+                comparisonBody.innerHTML += comparisonRow;
+            });
+        }
+
+        function deleteRecord(index) {
+            let records = JSON.parse(localStorage.getItem("medicalRecords")) || [];
+            records.splice(index, 1); // Remove the selected record
+            localStorage.setItem("medicalRecords", JSON.stringify(records));
+            loadRecords(); // Reload table after deletion
+        }
+
+        function clearRecords() {
+            if (confirm("Are you sure you want to clear all records?")) {
+                localStorage.removeItem("medicalRecords");
+                loadRecords();
+            }
+        }
+
+        window.onload = loadRecords;
+    </script>
+</head>
+<body>
+    <h2>Medical Records</h2>
+
+    <!-- Existing Records Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Patient Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Sugar</th>
+                <th>Pressure</th>
+                <th>Cholesterol</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="recordsTableBody">
+            <!-- Records will be inserted here dynamically -->
+        </tbody>
+    </table>
+
+    <!-- Comparison Table with Normal Levels -->
+    <h3>Comparison with Normal Levels</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Normal Levels</th>
+                <th>Sugar (mg/dL)</th>
+                <th>Pressure (mmHg)</th>
+                <th>Cholesterol (mg/dL)</th>
+                <th>Entered Levels</th>
+                <th>Sugar (mg/dL)</th>
+                <th>Pressure (mmHg)</th>
+                <th>Cholesterol (mg/dL)</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="comparisonTableBody">
+            <!-- Comparison data will be inserted here dynamically -->
+        </tbody>
+    </table>
+
+    <br>
+    <button class="clear-button" onclick="clearRecords()">Clear All Records</button>
+</body>
+</html>
