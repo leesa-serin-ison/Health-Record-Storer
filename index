@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website Title</title>
+<style>
+body {
+    background-color: rgb(135, 192, 249);
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}  
+</style>    
+</head>
+<body>
+<a href="/Users/abhi/Desktop/enter l.html"><h2>User-1</h2></a><a href="/Users/abhi/Desktop/user-2.html"></a>
+</body>
+</html>
