@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        .login-container {
+            width: 300px;
+            padding: 20px;
+            margin: auto;
+            border: 1px solid black;
+            border-radius: 8px;
+            text-align: left;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            text-align: center;
+        }
+        input {
+            width: 90%;
+            margin: 10px 0;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        function validateLogin(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (username === "admin" && password === "password") {
+                alert("Login successful!");
+            } else {
+                alert("Invalid username or password.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>LOGIN</h1>
+    <div class="login-container">
+        <form onsubmit="validateLogin(event)">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" placeholder="Enter username" required><br>
+            
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" placeholder="Enter password" required><br>
+            
+            <button type="submit"><a href="/Users/abhi/Desktop/new.html">Login</a></button>
+        </form>
+    </div>
+</body>
+</html>
