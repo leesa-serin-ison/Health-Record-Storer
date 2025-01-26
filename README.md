@@ -63,7 +63,7 @@ No additional installations are needed.
 ](https://github.com/Abhirami-p0612/lab-record-storer.git)
 
 # RUN
-We used Liveserver to merge coodes and run them
+We used Liveserver to merge codes and run them
 
 # SCREENSHOTS
 
