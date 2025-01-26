@@ -3,7 +3,7 @@
 ## Team name:[Team C-AA]
 
 ### Team Members
-* Meamber-1:Ashwita Rajesh-[College of Engineering Chengannur]
+* Member-1:Ashwita Rajesh-[College of Engineering Chengannur]
 * Member-2:Abhirami.P-[College of Engineering Chengannur]
 * Member-3:Leesa Serin Ison-[College of Engineering Chengannur]
   
