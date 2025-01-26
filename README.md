@@ -1,32 +1,34 @@
-HEALTH RECORD STORER
+# HEALTH RECORD STORER
 
-Team name:[Team C-AA]
+## Team name:[Team C-AA]
 
+### Team Members
 * Meamber-1:Ashwita Rajesh-[College of Engineering Chengannur]
 * Member-2:Abhirami.P-[College of Engineering Chengannur]
 * Member-3:Leesa Serin Ison-[College of Engineering Chengannur]
   
-HOSTED PROJECT LINK-https://lab-record-storer-xam8.vercel.app/
+### HOSTED PROJECT LINK
+-https://lab-record-storer-xam8.vercel.app/
 
-Project Description
+### Project Description
 
 This website manages patient medical records and compares user health data with standard values. It features dynamic tables for records and health comparisons, styled with a clean, responsive design. Built with HTML, CSS, and JavaScript, it offers user-friendly functionality, including local storage integration and real-time data updates for easy tracking.
 
-THE PROBLEM STATEMENT
+### THE PROBLEM STATEMENT
 
 We are solving the problem of managing health records from laboratory for elders and patients.
 
-THE SOLUTION
+### THE SOLUTION
 
 We are solving it by providing a website to people as frequent visitors of laboratories to record their health status.
 
-TECHNICAL DETAILS
+## TECHNICAL DETAILS
 
-*Technologies or components used:
+### Technologies or components used:
 For software-
    * Languages used-HTML,CSS,JS
      
-IMPLIMENTATION
+### IMPLIMENTATION
 
 Algorithm for the Medical Records Website
 
@@ -51,7 +53,7 @@ Confirm action with the user before deletion.
 6. Update Records on Page Load
 Automatically load and display records when the page opens.
 
-INSTALLATION
+# INSTALLATION
 This project doesn't require complex installation commands as it uses only HTML, CSS, and JavaScript with local storage. Follow these steps:
 
 1. Save the code files with .html extension (e.g., form.html and records.html).
@@ -60,10 +62,14 @@ No additional installations are needed.
    GitHub Address
 ](https://github.com/Abhirami-p0612/lab-record-storer.git)
 
-RUN
+# RUN
 We used Liveserver to merge coodes and run them
 
-SCREENSHOTS
+# SCREENSHOTS
+
+https://drive.google.com/drive/folders/16dEJ3swZiJDNgYEU6yZb5nD2L6RbnhJQ?usp=drive_link
+
+
 
 
 
